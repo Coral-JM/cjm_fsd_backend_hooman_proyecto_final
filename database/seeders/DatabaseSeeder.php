@@ -31,6 +31,9 @@ class DatabaseSeeder extends Seeder
             'password' => '1234'
         ]);
 
+        $this->call([
+            LocalSeeder::class
+        ]);
 
 
 

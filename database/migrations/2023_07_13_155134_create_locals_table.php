@@ -15,12 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('direction');
+            $table->string('url');
             $table->string('phone');
             $table->string('schedule');
             $table->boolean('gluten_free');
             $table->boolean('vegetarian');
             $table->boolean('vegan');
-            $table->string('Type');
+            $table->string('type');
             $table->integer('rating')->nullable();
             $table->boolean('favorite')->default(false);
             $table->timestamps();
