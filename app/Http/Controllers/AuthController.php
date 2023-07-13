@@ -51,4 +51,87 @@ class AuthController extends Controller
         }
     }
 
+    public function login (Request $request){
+        try {
+            $validator = Validator::make($request->all(), [
+                'email'=>'required | email',
+                'password'=>'required'
+            ], [
+                'email'=> 'Email or password are invalid',
+                'password' => 'Email or password are invalid'
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json($validator->errors(), 400);
+            }
+            $validData = $validator->validated();
+            $user = User::where('email', $validData['email'])->first();
+
+            if(!$user) {
+                return response()->json([
+                    'message' => 'Email or password are invalid'
+                ], Response::HTTP_FORBIDDEN);
+            }
+
+            if(!Hash::check($validData['password'], $user->password)){
+                return response()->json([
+                    'message'=> 'Email or password are invalid'
+                ], Response::HTTP_FORBIDDEN);
+            }
+
+            $token = $user->createToken('apiToken')->plainTextToken;
+
+            return response()->json([
+                'message'=> 'User logged',
+                'data' => $user,
+                'token'=> $token
+            ], Response::HTTP_CREATED);
+        } catch (\Throwable $th) {
+            Log::error('Error logging user in ' . $th->getMessage());
+
+            return response()->json([
+                'message' => 'Error logging user in'
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
+    public function profile()
+    {
+        try {
+            $user = auth()->user();
+            
+            return response()->json([
+                'message' => 'User found',
+                'data' => $user,
+            ], Response::HTTP_OK);
+        } catch (\Throwable $th) {
+            Log::error('Error retrieving user ' . $th->getMessage());
+
+            return response()->json([
+                'message' => 'Error retrieving user'
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public function logout(Request $request)
+    {
+
+        try {
+            $headerToken = $request->bearerToken();
+            $token = PersonalAccessToken::findToken($headerToken);
+            $token->delete();
+
+            return response()->json([
+                'message' => 'User logged out'
+            ], Response::HTTP_OK);
+        } catch (\Throwable $th) {
+            Log::error('Error logging user out ' . $th->getMessage());
+
+            return response()->json([
+                'message' => 'Error logging user out'
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }
