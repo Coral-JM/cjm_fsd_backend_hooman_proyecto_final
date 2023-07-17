@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->integer('rating')->nullable();
+            $table->boolean('favorite')->default(false);
             $table->timestamps();
         });
     }

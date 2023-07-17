@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('locals', function (Blueprint $table) {
+        Schema::create('locals_specification', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('direction');
-            $table->string('url');
-            $table->string('phone');
-            $table->string('schedule');
-            $table->string('type');
-            $table->integer('rating')->nullable();
+            
+            $table->unsignedBigInteger('local_id');
+            $table->foreign('local_id')->references('id')->on('locals');
+
+            $table->unsignedBigInteger('specification_id');
+            $table->foreign('specification_id')->references('id')->on('specifications');
+
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('locals');
+        Schema::dropIfExists('locals_specification');
     }
 };
