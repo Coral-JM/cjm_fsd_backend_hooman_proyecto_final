@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LocalSpecificationController;
 use App\Http\Controllers\LocalController;
-use App\Http\Controllers\RoleController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +30,5 @@ Route::get('/profile', [AuthController::class, 'profile'])->middleware('auth:san
 
 //LOCALS CONTROLLERS
 Route::get('/locals', [LocalController::class, 'getAllLocals']);
+
 

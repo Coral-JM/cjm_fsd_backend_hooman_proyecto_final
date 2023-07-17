@@ -12,7 +12,9 @@ class LocalController extends Controller
     public function getAllLocals(){
 
         try {
-            $locals = Local::get();
+            $locals = Local::with(['localSpecification'=> ['specification']])->get();
+            // $locals = Local::get();
+
 
             return response()->json([
                 'message'=> 'Local retrieved',

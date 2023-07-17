@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Specification;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -34,6 +36,13 @@ class DatabaseSeeder extends Seeder
         $this->call([
             LocalSeeder::class
         ]);
+        $this->call([
+            SpecificationSeeder::class
+        ]);
+        $this->call([
+            Local_specificationsSeeder::class
+        ]);
+
 
 
 

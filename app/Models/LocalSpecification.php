@@ -9,6 +9,11 @@ class LocalSpecification extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'local_id',
+        'specification_id',
+    ];
+
     public function local() {
         return $this-> belongsTo(Local::class);
     }

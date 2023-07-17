@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('locals_specification', function (Blueprint $table) {
+        Schema::create('local_specifications', function (Blueprint $table) {
             $table->id();
-            
+
             $table->unsignedBigInteger('local_id');
             $table->foreign('local_id')->references('id')->on('locals');
 
             $table->unsignedBigInteger('specification_id');
             $table->foreign('specification_id')->references('id')->on('specifications');
-
+            
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('locals_specification');
+        Schema::dropIfExists('local_specifications');
     }
 };

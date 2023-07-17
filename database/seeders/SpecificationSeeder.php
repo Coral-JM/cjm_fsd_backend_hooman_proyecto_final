@@ -14,9 +14,9 @@ class SpecificationSeeder extends Seeder
     public function run(): void
     {
         DB::table('specifications')->insert([
-            'name'=> 'Gluten free',
-            'name'=> 'Vegetarian',
-            'name'=> 'Vegan',
+            ['name'=> 'Gluten free'],
+            ['name'=> 'Vegetarian'],
+            ['name'=> 'Vegan'],
         ]);
     }
 }
