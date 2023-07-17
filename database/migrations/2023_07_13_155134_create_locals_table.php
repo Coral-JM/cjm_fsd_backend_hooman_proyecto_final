@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('schedule');
             $table->string('type');
             $table->integer('rating')->nullable();
+            $table->string('image');
             $table->timestamps();
         });
     }

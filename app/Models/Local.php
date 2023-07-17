@@ -9,6 +9,17 @@ class Local extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'direction',
+        'url',
+        'phone',
+        'schedule',
+        'type',
+        'rating',
+        'image'
+    ];
+
     public function review() {
         return $this-> hasMany(Review::class);
     }
