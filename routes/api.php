@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\LocalSpecificationController;
 use App\Http\Controllers\LocalController;
 use App\Http\Controllers\ReviewController;
@@ -33,3 +34,7 @@ Route::get('/locals', [LocalController::class, 'getAllLocals']);
 
 //REVIEWS CONTROLLERS
 Route::get('/reviews', [ReviewController::class, 'getAllReviews']);
+Route::get('/reviews/{id}', [ReviewController::class, 'getAllReviewsById']);
+
+//FAVORITES CONTROLLERS
+Route::post('/users/{userId}/favorites', [FavoriteController::class, 'addFavorite']);

@@ -35,5 +35,16 @@ class LocalSeeder extends Seeder
             'image' => 'federalCafe.jpg',
             'company_id'=> 1,
         ]);
+        DB::table('locals')->insert([
+            'name'=>'La Consentida',
+            'direction'=>'C/ del Doctor Serrano, 22 - Valencia',
+            'url'=> 'https://federalcafe.es/valencia/',
+            'phone'=>'633 75 70 13',
+            'schedule'=>'Miércoles de 19h a 24h; De jueves a viernes de 9h a 12h y de 19h a 24h; Sábados de 9h a 24h; Domingos de 9h a 12h',
+            'type'=> 'Cocina Mediterránea',
+            'rating'=> 3,
+            'image' => 'LaConsentida.jpg',
+            'company_id'=> 1,
+        ]);
     }
 }
