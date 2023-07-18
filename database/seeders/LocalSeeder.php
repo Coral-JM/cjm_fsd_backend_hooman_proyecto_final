@@ -21,7 +21,8 @@ class LocalSeeder extends Seeder
             'schedule'=>'Miércoles y jueves de 20h a 23h; viernes y sábado de 13h a 16h y de 20h a 23h; Domingos de 13h a 16h',
             'type'=> 'Cocina Israelí',
             'rating'=> 5,
-            'image' => 'kukla.png'
+            'image' => 'kukla.png',
+            'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
             'name'=>'Federal Café',
@@ -31,7 +32,8 @@ class LocalSeeder extends Seeder
             'schedule'=>'Lunes a jueves de 9h a 20h; Viernes y sábado de 9h a 21h; Domingo de 9h a 20h',
             'type'=> 'Healthy',
             'rating'=> 5,
-            'image' => 'federalCafe.jpg'
+            'image' => 'federalCafe.jpg',
+            'company_id'=> 1,
         ]);
     }
 }

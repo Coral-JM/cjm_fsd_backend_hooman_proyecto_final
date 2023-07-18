@@ -21,10 +21,9 @@ return new class extends Migration
             $table->string('type');
             $table->integer('rating')->nullable();
             $table->string('image');
-
-            // $table->unsignedBigInteger('local_specifications_id');
-            // $table->foreign('local_specifications_id')->references('id')->on('local_specifications');
-
+            $table->unsignedBigInteger('company_id');
+            $table->foreign('company_id')->references('id')->on('companies');
+            
             $table->timestamps();
         });
     }

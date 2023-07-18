@@ -26,4 +26,7 @@ class Local extends Model
     public function localSpecification() {
         return $this-> hasMany(LocalSpecification::class);
     }
+    public function company() {
+        return $this->belongsTo(Company::class);
+    }
 }

@@ -32,7 +32,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
             'password' => '1234'
         ]);
-
+        $this->call([
+            CompanySeeder::class
+        ]);
         $this->call([
             LocalSeeder::class
         ]);
