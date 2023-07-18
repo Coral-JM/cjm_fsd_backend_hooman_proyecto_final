@@ -31,4 +31,4 @@ Route::get('/profile', [AuthController::class, 'profile'])->middleware('auth:san
 //LOCALS CONTROLLERS
 Route::get('/locals', [LocalController::class, 'getAllLocals']);
 
-
+//Comprobacion cambio de rama
