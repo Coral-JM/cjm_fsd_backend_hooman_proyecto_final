@@ -42,9 +42,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             Local_specificationsSeeder::class
         ]);
-
-
-
-
+        $this->call([
+            ReviewSeeder::class
+        ]);
+        
     }
 }

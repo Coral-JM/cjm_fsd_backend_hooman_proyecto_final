@@ -3,7 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LocalSpecificationController;
 use App\Http\Controllers\LocalController;
-
+use App\Http\Controllers\ReviewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,5 +31,5 @@ Route::get('/profile', [AuthController::class, 'profile'])->middleware('auth:san
 //LOCALS CONTROLLERS
 Route::get('/locals', [LocalController::class, 'getAllLocals']);
 
-//Comprobación cambio de rama
-//Segunda comprobación
+//REVIEWS CONTROLLERS
+Route::get('/reviews', [ReviewController::class, 'getAllReviews']);

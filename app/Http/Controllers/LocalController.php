@@ -15,11 +15,11 @@ class LocalController extends Controller
             $locals = Local::with(['localSpecification'=> ['specification']])->get();
             // $locals = Local::get();
 
-
             return response()->json([
-                'message'=> 'Local retrieved',
+                'message'=> 'Locals retrieved',
                 'data'=> $locals
             ], Response::HTTP_OK);
+            
         } catch (\Throwable $th) {
             Log::error('Error getting locals ' . $th->getMessage());
     
