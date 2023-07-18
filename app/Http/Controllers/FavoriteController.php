@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Favorite;
 use App\Models\Local;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -12,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class FavoriteController extends Controller
 {
-    public function addFavorite(Request $request, $userId) {
+    public function addFavorite(Request $request) {
         try {
 
             $validator = Validator::make($request->all(), [
@@ -23,7 +22,7 @@ class FavoriteController extends Controller
                 return response()->json(['error'=> $validator->errors()], 400);
             }
 
-            $user = User::findOrFail($userId);
+            $user = auth()->user();
 
             $local = Local::findOrFail($request->input('local_id'));
 

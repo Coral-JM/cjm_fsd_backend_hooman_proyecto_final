@@ -37,4 +37,4 @@ Route::get('/reviews', [ReviewController::class, 'getAllReviews']);
 Route::get('/reviews/{id}', [ReviewController::class, 'getAllReviewsById']);
 
 //FAVORITES CONTROLLERS
-Route::post('/users/{userId}/favorites', [FavoriteController::class, 'addFavorite']);
+Route::post('/favorites', [FavoriteController::class, 'addFavorite'])->middleware('auth:sanctum');
