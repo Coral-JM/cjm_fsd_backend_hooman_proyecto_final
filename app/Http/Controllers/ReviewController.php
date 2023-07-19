@@ -29,16 +29,18 @@ class ReviewController extends Controller
         }
     }
 
-    public function getAllReviewsById($id){
+    public function getAllReviewsById(Request $request){
         try {
-            $reviews = Review::where('user_id', $id)->get();
+            
+            $user = $request->user();
+            $reviews = Review::where('user_id', $user->id)->get();
 
             return response()->json([
                 'message' => 'Reviews retrieved',
                 'data' => $reviews
             ], Response::HTTP_OK);
         } catch (\Throwable $th) {
-            Log::error('Error getting reviews ' . $th->getMessage());
+            Log::error('Error retrieving reviews ' . $th->getMessage());
 
             return response()->json([
                 'message' => 'Error retrieving reviews'
