@@ -44,4 +44,23 @@ class FavoriteController extends Controller
             
         }
     }
+
+    public function getFavorites (Request $request) {
+
+        try {
+            $user = $request->user();
+            $favorites = Favorite::where('user_id', $user->id)->with('local')->get();
+
+            return response()->json([
+                'message' => 'Favorites retrieved',
+                'data' => $favorites
+            ], Response::HTTP_OK);
+        } catch (\Throwable $th) {
+            Log::error('Error retrieving favorites ' . $th->getMessage());
+
+            return response()->json([
+                'message' => 'Error retrieving favorites'
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
 }

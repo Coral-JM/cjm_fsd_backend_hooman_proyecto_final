@@ -14,8 +14,16 @@ class FavoriteSeeder extends Seeder
     public function run(): void
     {
         DB::table('favorites')->insert([
-            'user_id'=> 2,
+            'user_id'=> 3,
             'local_id'=> 1
+        ]);
+        DB::table('favorites')->insert([
+            'user_id'=> 3,
+            'local_id'=> 2
+        ]);
+        DB::table('favorites')->insert([
+            'user_id'=> 3,
+            'local_id'=> 23
         ]);
     }
 }

@@ -14,6 +14,10 @@ class LocalController extends Controller
         try {
             $locals = Local::with(['localSpecification'=> ['specification']])->get();
             // $locals = Local::get();
+            
+            // foreach ($locals as $local) {
+            //     $local->image = 'http://localhost:5173/uploads/' . $local->image;
+            // }
 
             return response()->json([
                 'message'=> 'Locals retrieved',

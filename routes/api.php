@@ -25,7 +25,9 @@ use Illuminate\Support\Facades\Route;
 //AUTH CONTROLLERS
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::get('/profile', [AuthController::class, 'profile'])->middleware('auth:sanctum');
+Route::get('/profile/myprofile', [AuthController::class, 'profile'])->middleware('auth:sanctum');
+
+
 
 //LOCALS CONTROLLERS
 Route::get('/locals', [LocalController::class, 'getAllLocals']);
@@ -35,4 +37,6 @@ Route::get('/reviews', [ReviewController::class, 'getAllReviews']);
 Route::get('/reviews', [ReviewController::class, 'getAllReviewsById'])->middleware('auth:sanctum');;
 
 //FAVORITES CONTROLLERS
-Route::post('/favorites', [FavoriteController::class, 'addFavorite'])->middleware('auth:sanctum');
+Route::post('/', [FavoriteController::class, 'addFavorite'])->middleware('auth:sanctum');
+Route::get('/favorites', [FavoriteController::class, 'getFavorites'])->middleware('auth:sanctum');
+

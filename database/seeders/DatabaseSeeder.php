@@ -32,6 +32,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
             'password' => '1234'
         ]);
+        \App\Models\User::factory()->create([
+            'role_id'=> 2,
+            'name' => 'Blue',
+            'email' => 'coral@email.com',
+            'password' => '1234Coral'
+        ]);
         $this->call([
             CompanySeeder::class
         ]);
