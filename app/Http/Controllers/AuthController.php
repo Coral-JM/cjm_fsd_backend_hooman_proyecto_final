@@ -96,8 +96,7 @@ class AuthController extends Controller
 
     }
 
-    public function profile()
-    {
+    public function profile() {
         try {
             $user = auth()->user();
             
@@ -114,9 +113,38 @@ class AuthController extends Controller
         }
     }
 
+    public function updateUser (Request $request) {
+        try {
+
+            $user = auth()->user();
+
+            $request->validate([
+            'name' => 'required | string',
+            'email' => 'required | string | email',
+            ]);
+
+            $user->update([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+            ]);
+
+            return response()->json([
+                'message' => 'User uploaded',
+                'data' => $user,
+            ], Response::HTTP_OK);
+
+        } catch (\Throwable $th) {
+            Log::error('Error uploading user ' . $th->getMessage());
+
+            return response()->json([
+                'message' => 'Error uploading user'
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
     public function logout(Request $request)
     {
-
         try {
             $headerToken = $request->bearerToken();
             $token = PersonalAccessToken::findToken($headerToken);

@@ -12,7 +12,7 @@ class LocalController extends Controller
     public function getAllLocals(){
 
         try {
-            $locals = Local::with(['localSpecification'=> ['specification']])->get();
+            $locals = Local::with(['localSpecification'=> ['specification']])->with(['review'])->get();
             // $locals = Local::get();
             
             // foreach ($locals as $local) {
