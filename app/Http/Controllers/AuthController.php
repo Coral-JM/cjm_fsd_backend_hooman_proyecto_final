@@ -117,16 +117,19 @@ class AuthController extends Controller
         try {
 
             $user = auth()->user();
-
-            $request->validate([
-            'name' => 'required | string',
-            'email' => 'required | string | email',
+            
+            $validator = Validator::make($request->all(), [
+            'name' => 'nullable | string',
+            'email' => 'nullable | string | email',
             ]);
 
-            $user->update([
-                'name' => $request->input('name'),
-                'email' => $request->input('email'),
-            ]);
+            if ($validator->fails()) {
+                return response()->json($validator->errors(), Response::HTTP_BAD_REQUEST);
+            }
+
+            $validData = $validator->validated();
+
+            $user->update($validData);
 
             return response()->json([
                 'message' => 'User uploaded',

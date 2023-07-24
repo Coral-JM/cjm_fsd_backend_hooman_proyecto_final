@@ -35,7 +35,7 @@ class ReviewController extends Controller
         try {
             
             $user = $request->user();
-            $reviews = Review::where('user_id', $user->id)->get();
+            $reviews = Review::where('user_id', $user->id)->with('local')->get();
 
             return response()->json([
                 'message' => 'Reviews retrieved',
