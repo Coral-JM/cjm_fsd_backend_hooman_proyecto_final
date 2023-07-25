@@ -37,16 +37,16 @@ class LocalController extends Controller
 
         try {
 
-            $searchTerm = $request->input('search');
+            $search = $request->input('search');
             $type = $request->input('type');
             $specification = $request->input('specification');
             
             $query = Local::query();
             
-            if ($searchTerm) {
-                $query->where(function ($query) use ($searchTerm) {
-                    $query->where('name', 'like', "%$searchTerm%")
-                          ->orWhere('type', 'like', "%$searchTerm%");
+            if ($search) {
+                $query->where(function ($query) use ($search) {
+                    $query->where('name', 'like', "%$search%")
+                          ->orWhere('type', 'like', "%$search%");
                 });
             }
         

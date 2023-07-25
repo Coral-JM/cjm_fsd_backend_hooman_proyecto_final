@@ -31,7 +31,7 @@ Route::post('/profile/myprofile', [AuthController::class, 'updateUser'])->middle
 
 //LOCALS CONTROLLER
 Route::get('/locals', [LocalController::class, 'getAllLocals']);
-Route::post('/locals/filter', [LocalController::class, 'filterLocals']);
+Route::get('/locals/filter', [LocalController::class, 'filterLocals']);
 
 //REVIEWS CONTROLLER
 Route::get('/reviews', [ReviewController::class, 'getAllReviews']);
