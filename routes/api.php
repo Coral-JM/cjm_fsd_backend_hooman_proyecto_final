@@ -31,6 +31,7 @@ Route::post('/profile/myprofile', [AuthController::class, 'updateUser'])->middle
 
 //LOCALS CONTROLLER
 Route::get('/locals', [LocalController::class, 'getAllLocals']);
+Route::post('/locals/filter', [LocalController::class, 'filterLocals']);
 
 //REVIEWS CONTROLLER
 Route::get('/reviews', [ReviewController::class, 'getAllReviews']);
@@ -43,7 +44,7 @@ Route::post('/', [FavoriteController::class, 'addFavorite'])->middleware('auth:s
 Route::get('/favorites', [FavoriteController::class, 'getFavorites'])->middleware('auth:sanctum');
 
 //COMPANY CONTROLLER
-Route::get('/petitions', [CompanyController::class, 'getCompany'])->middleware(['auth:sanctum', 'isAdmin']);
+Route::get('/petitions/companies', [CompanyController::class, 'getCompany'])->middleware(['auth:sanctum', 'isAdmin']);
 Route::post('/petitions', [CompanyController::class, 'newCompany'])->middleware('auth:sanctum');
 
 
