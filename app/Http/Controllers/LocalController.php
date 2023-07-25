@@ -34,13 +34,12 @@ class LocalController extends Controller
     }
 
     public function filterLocals(Request $request) {
-
+        
         try {
 
             $search = $request->input('search');
             $type = $request->input('type');
-            $specification = $request->input('specification');
-            
+
             $query = Local::query();
             
             if ($search) {
@@ -49,24 +48,39 @@ class LocalController extends Controller
                           ->orWhere('type', 'like', "%$search%");
                 });
             }
-        
             if ($type) {
                 $query->where('type', $type);
             }
         
-            if ($specification) {
-                $query->whereHas('localSpecification.specification', function ($query) use ($specification) {
-                    $query->where('name', 'LIKE', "%$specification%");
-                });
-            }
-        
             $locals = $query->get();
-
 
             return response()->json([
                 'message'=> 'Locals retrieved',
                 'data'=> $locals
             ], Response::HTTP_OK);
+        } catch (\Throwable $th) {
+            Log::error('Error getting locals ' . $th->getMessage());
+    
+            return response()->json([
+                'message' => 'Error retrieving locals'
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public function filterSpecifications(Request $request) {
+
+        try {
+
+            $specifications = $request->get('specifications', []);
+            
+            $locales = Local::whereHas('localSpecification', function ($query) use ($specifications) {
+                $query->whereIn('specification_id', $specifications);})->get();
+
+            return response()->json([
+                'message'=> 'Locals retrieved',
+                'data'=> $locales
+            ], Response::HTTP_OK);
+        
         } catch (\Throwable $th) {
             Log::error('Error getting locals ' . $th->getMessage());
     
