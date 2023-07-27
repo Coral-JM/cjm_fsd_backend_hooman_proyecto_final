@@ -35,7 +35,8 @@ Route::get('/locals', [LocalController::class, 'filterLocals']);
 Route::post('/locals', [LocalController::class, 'filterSpecifications']);
 Route::get('/detail/{id}', [LocalController::class, 'getLocalById']);
 
-
+//IMAGES CONTROLLER
+Route::get('images/{filename}', [ImageController::class, 'imageShow']);
 
 //REVIEWS CONTROLLER
 Route::get('/reviews', [ReviewController::class, 'getAllReviews']);
@@ -44,8 +45,9 @@ Route::post('/detail/{local_id}', [ReviewController::class, 'newReview'])->middl
 
 
 //FAVORITES CONTROLLER
-Route::post('/detail/{id}', [FavoriteController::class, 'addFavorite'])->middleware('auth:sanctum');
+Route::post('/detail/{local_id}', [FavoriteController::class, 'addFavorite'])->middleware('auth:sanctum');
 Route::get('/favorites', [FavoriteController::class, 'getFavorites'])->middleware('auth:sanctum');
+
 
 //COMPANY CONTROLLER
 Route::get('/petitions/companies', [CompanyController::class, 'getCompany'])->middleware(['auth:sanctum', 'isAdmin']);

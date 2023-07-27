@@ -21,7 +21,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'Miércoles y jueves de 20h a 23h; viernes y sábado de 13h a 16h y de 20h a 23h; Domingos de 13h a 16h',
             'type'=> 'Cocina Israelí',
             'rating'=> 5,
-            'image' => 'kukla.png',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/kukla.png',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -32,7 +32,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De lunes a jueves de 9h a 20h; Viernes y sábado de 9h a 21h; Domingo de 9h a 20h',
             'type'=> 'Healthy',
             'rating'=> 5,
-            'image' => 'federalCafe.jpg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/federalCafe.jpg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -43,7 +43,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'Miércoles de 19h a 24h; De jueves a viernes de 9h a 12h y de 19h a 24h; Sábados de 9h a 24h; Domingos de 9h a 12h',
             'type'=> 'Cocina Mediterránea',
             'rating'=> 3,
-            'image' => 'LaConsentida.jpg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/LaConsentida.jpg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -54,7 +54,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De lunes a martes de 17h a 1:30h; De miércoles a domingo de 11h a 1:30h',
             'type'=> 'Cocina Mediterránea',
             'rating'=> 4,
-            'image' => 'Ubik.jpg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/Ubik.jpg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -65,7 +65,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De lunes a sábado de 8:30h a 17h; Domingo cerrado',
             'type'=> 'Desayunos y meriendas',
             'rating'=> 4,
-            'image' => 'Trencat.jpg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/Trencat.jpg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -76,7 +76,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De lunes a domingo de 11h a 1:30h',
             'type'=> 'Cocina mediterránea',
             'rating'=> 5,
-            'image' => 'VlueArribar.jpg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/VlueArribar.jpg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -87,7 +87,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De lunes a domingo de 11h a 1:30h',
             'type'=> 'Cocktelería y cervecería especializada',
             'rating'=> 4,
-            'image' => 'cafeBerlin.jpg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/cafeBerlin.jpg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -98,7 +98,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De lunes a viernes de 19:30h a 24h; Sábado y domingo de 13:30h a 24h',
             'type'=> 'Street Food',
             'rating'=> 4,
-            'image' => 'GarajeFoodie.png',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/GarajeFoodie.png',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -109,7 +109,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De lunes a viernes de 19h a 23h; Sábado y domingo cerrado',
             'type'=> 'Bodega y tapeo',
             'rating'=> 5,
-            'image' => 'Olivi.jpg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/Olivi.jpg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -120,7 +120,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De lunes a viernes de 13h a 16h y de 20h a 23h; Sábado y domingo de 13h a 24h',
             'type'=> 'Cocina japonesa - sushi',
             'rating'=> 5,
-            'image' => 'unsushi.jpg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/unsushi.jpg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -131,7 +131,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De martes a sábado de 19h a 24h',
             'type'=> 'Hamburguesería',
             'rating'=> 4,
-            'image' => 'Slauthterhouse.png',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/Slaughterhouse.png',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -142,7 +142,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De martes a jueves de 18:30h a 24h; Viernes y sábado de 13:30 a 16h y de 20h a 24h',
             'type'=> 'Comida mejicana',
             'rating'=> 5,
-            'image' => 'CocinaLupe.jpeg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/CocinaLupe.jpeg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -153,7 +153,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'Jueves de 11:30h a 24h; Viernes de 11:30 a 1h; Sábado de 11h a 1h; Domingo de 11:30h a 18h',
             'type'=> 'Cocina Mediterránea',
             'rating'=> 5,
-            'image' => 'aguadevermut.jpg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/aguadevermut.jpg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -164,7 +164,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De martes a domingo de 10h a 23h',
             'type'=> 'Cocina Mediterránea',
             'rating'=> 5,
-            'image' => 'almalibre.jpg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/almalibre.jpg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -175,7 +175,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De lunes a jueves de 12h a 22:30h; De viernes a domingo de 12h a 23h',
             'type'=> 'Comida hawaiana',
             'rating'=> 5,
-            'image' => 'aloha.jpg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/aloha.jpg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -186,7 +186,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De lunes a domingo de 9h a 16h',
             'type'=> 'Desayunos y cocina Mediterránea',
             'rating'=> 5,
-            'image' => 'bluebell.jpg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/bluebell.jpg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -197,7 +197,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De martes a sábado de 20h a 24h',
             'type'=> 'Comida mallorquina',
             'rating'=> 5,
-            'image' => 'salat.jpg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/salat.jpg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -208,7 +208,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De martes a viernes de 13h a 23h; Sábado y lunes de 12:30h a 23:30h',
             'type'=> 'Cocina Mediterránea',
             'rating'=> 5,
-            'image' => 'lachata.png',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/lachata.png',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -219,7 +219,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De lunes a jueves de 8:30h a 18:30h; Viernes de 8:30h a 21h; Sábado de 9:30h a 18:30h; Domingo de 9:30h a 16h',
             'type'=> 'Brunch',
             'rating'=> 5,
-            'image' => 'artysana.jpeg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/artysana.jpeg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -230,7 +230,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De lunes a viernes de 8:30h a 16:30h; Jueves tambien de 19h a 22h; Sábado de 9:30 a 16:30h',
             'type'=> 'Brunch',
             'rating'=> 5,
-            'image' => 'capicua.jpeg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/capicua.jpg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -241,7 +241,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De lunes a viernes de 7h a 21h; Domingo de 9h a 21h',
             'type'=> 'Cocina Mediterránea',
             'rating'=> 5,
-            'image' => 'barmani.jpeg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/barmani.jpg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -252,7 +252,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De lunes a domingo de 9:30h a 0:30h',
             'type'=> 'Cocina Mediterránea',
             'rating'=> 5,
-            'image' => 'cocolinda.jpeg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/cocolinda.jpeg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -263,7 +263,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De lunes a domingo de 9h a 21h',
             'type'=> 'Cocina Mediterránea',
             'rating'=> 5,
-            'image' => 'bastard.jpg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/bastard.jpg',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -274,7 +274,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De lunes a viernes de 8h a 20h; Sábado y domingo de 9h a 20h',
             'type'=> 'Cocina Mediterránea',
             'rating'=> 5,
-            'image' => 'brunchcorner.jpeg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/brunchcorner.JPG',
             'company_id'=> 1,
         ]);
         DB::table('locals')->insert([
@@ -285,7 +285,7 @@ class LocalSeeder extends Seeder
             'schedule'=>'De lunes a viernes de 13h a 17h y de 19:30h a 24h; Sábado y domingo de 11h a 17:30h y de 19:30h a 24h',
             'type'=> 'Cocina Mediterránea',
             'rating'=> 5,
-            'image' => 'casaviva.jpg',
+            'image' => 'https://s3-hooman.s3.amazonaws.com/casaviva.jpg',
             'company_id'=> 1,
         ]);
 

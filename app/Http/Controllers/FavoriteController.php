@@ -11,37 +11,35 @@ use Symfony\Component\HttpFoundation\Response;
 
 class FavoriteController extends Controller
 {
-    public function addFavorite(Request $request) {
+    public function addFavorite($local_id)
+    {
         try {
-
-            $validator = Validator::make($request->all(), [
-                'local_id'=> 'required | exists:locals,id'
+            $validator = Validator::make(['local_id' => $local_id], [
+                'local_id' => 'required|exists:locals,id',
             ]);
-
+    
             if ($validator->fails()) {
-                return response()->json(['error'=> $validator->errors()], 400);
+                return response()->json(['error' => $validator->errors()], Response::HTTP_BAD_REQUEST);
             }
-
+    
             $user = auth()->user();
-
-            $local = Local::findOrFail($request->input('local_id'));
-
+            $local = Local::findOrFail($local_id);
+    
             $favorite = new Favorite();
             $favorite->user_id = $user->id;
             $favorite->local_id = $local->id;
             $favorite->save();
-
+    
             return response()->json([
-                'message'=> 'Local added to favorites',
-                'data' => $favorite
+                'message' => 'Local added to favorites',
+                'data' => $favorite,
             ], Response::HTTP_CREATED);
         } catch (\Throwable $th) {
-            Log::error('Error adding to favorites ' . $th->getMessage());
-
+            Log::error('Error adding to favorites: ' . $th->getMessage());
+    
             return response()->json([
-                'message' => 'Error adding to favorites'
+                'message' => 'Error adding to favorites',
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
-            
         }
     }
 
