@@ -50,22 +50,23 @@ class ReviewController extends Controller
         }
     }
 
-    public function newReview(Request $request) {
+    public function newReview(Request $request, $local_id) {
+
         try {
             $validator = Validator::make($request->all(), [
-                'local_id'=> 'required | exists:locals,id',
-                'title'=> 'required | string',
-                'description' => 'required | string',
-                'rating'=> 'required'
+                'title' => 'required|string',
+                'description' => 'required|string',
+                'rating' => ''
             ]);
-
+    
             if ($validator->fails()) {
                 return response()->json(['error' => $validator->errors()], 400);
             }
+    
             $user = auth()->user();
-
-            $local = Local::findOrFail($request->input('local_id'));
-
+    
+            $local = Local::findOrFail($local_id);
+    
             $review = new Review();
             $review->user_id = $user->id;
             $review->local_id = $local->id;
@@ -73,19 +74,19 @@ class ReviewController extends Controller
             $review->description = $request->input('description');
             $review->rating = $request->input('rating');
             $review->save();
-
+    
             return response()->json([
-                'message'=> 'Review added to local',
+                'message' => 'Review added to local',
                 'data' => $review
             ], Response::HTTP_CREATED);
         } catch (\Throwable $th) {
-            Log::error('Error posting new review 1' . $th->getMessage());
-
+            Log::error('Error posting new review: ' . $th->getMessage());
+    
             return response()->json([
-                'message' => 'Error posting new review 2'
+                'message' => 'Error posting new review'
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
-
+    
     
 }

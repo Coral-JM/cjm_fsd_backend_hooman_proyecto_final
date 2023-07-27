@@ -33,16 +33,18 @@ Route::post('/profile/myprofile', [AuthController::class, 'updateUser'])->middle
 Route::get('/locals', [LocalController::class, 'getAllLocals']);
 Route::get('/locals', [LocalController::class, 'filterLocals']);
 Route::post('/locals', [LocalController::class, 'filterSpecifications']);
+Route::get('/detail/{id}', [LocalController::class, 'getLocalById']);
+
 
 
 //REVIEWS CONTROLLER
 Route::get('/reviews', [ReviewController::class, 'getAllReviews']);
 Route::get('/reviews', [ReviewController::class, 'getAllReviewsById'])->middleware('auth:sanctum');
-Route::post('/review', [ReviewController::class, 'newReview'])->middleware('auth:sanctum');
+Route::post('/detail/{local_id}', [ReviewController::class, 'newReview'])->middleware('auth:sanctum');
 
 
 //FAVORITES CONTROLLER
-Route::post('/', [FavoriteController::class, 'addFavorite'])->middleware('auth:sanctum');
+Route::post('/detail/{id}', [FavoriteController::class, 'addFavorite'])->middleware('auth:sanctum');
 Route::get('/favorites', [FavoriteController::class, 'getFavorites'])->middleware('auth:sanctum');
 
 //COMPANY CONTROLLER

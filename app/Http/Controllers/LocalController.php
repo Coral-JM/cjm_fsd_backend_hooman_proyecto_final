@@ -89,4 +89,24 @@ class LocalController extends Controller
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
+    public function getLocalById($id)
+    {
+        try {
+            $local = Local::with(['localSpecification'=> ['specification']])->with(['review'])->find($id);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Local by id retrieved',
+                'data' => $local
+            ], Response::HTTP_OK);
+        } catch (\Throwable $th) {
+            Log::error('Error retrieving local by id ' . $th->getMessage());
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Error retrieving local by id ',
+            ]);
+        }
+    }
+
 }
