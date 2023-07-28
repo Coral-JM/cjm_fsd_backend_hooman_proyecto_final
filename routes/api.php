@@ -45,7 +45,7 @@ Route::post('/detail/{local_id}', [ReviewController::class, 'newReview'])->middl
 
 
 //FAVORITES CONTROLLER
-Route::post('/detail/{local_id}', [FavoriteController::class, 'addFavorite'])->middleware('auth:sanctum');
+Route::post('/locals/fav', [FavoriteController::class, 'addFavorite'])->middleware('auth:sanctum');
 Route::get('/favorites', [FavoriteController::class, 'getFavorites'])->middleware('auth:sanctum');
 
 

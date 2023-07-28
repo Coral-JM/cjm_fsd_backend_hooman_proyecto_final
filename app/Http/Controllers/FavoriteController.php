@@ -11,10 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class FavoriteController extends Controller
 {
-    public function addFavorite($local_id)
+    public function addFavorite(Request $request)
     {
         try {
-            $validator = Validator::make(['local_id' => $local_id], [
+            $validator = Validator::make($request->all(), [
                 'local_id' => 'required|exists:locals,id',
             ]);
     
@@ -23,7 +23,8 @@ class FavoriteController extends Controller
             }
     
             $user = auth()->user();
-            $local = Local::findOrFail($local_id);
+            $localId = $request->input('local_id');
+            $local = Local::findOrFail($localId);
     
             $favorite = new Favorite();
             $favorite->user_id = $user->id;
