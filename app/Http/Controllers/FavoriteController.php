@@ -62,4 +62,35 @@ class FavoriteController extends Controller
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
+
+
+
+    public function deletefav(Request $request)
+        {
+            try {
+                $localId = $request->input('local_id');
+                $user = auth()->user();
+            
+                $favorite = Favorite::where('local_id', $localId)
+                                    ->where('user_id', $user->id) 
+                                    ->first();
+
+                $favorite->delete();
+            
+                return response()->json([
+                    'message' => 'Favorito deleted',
+                    'data' => $favorite
+                ], Response::HTTP_OK);
+            } catch (\Throwable $th) {
+                Log::error('Error deleting favorite' . $th->getMessage());
+            
+                return response()->json([
+                    'message' => 'Error deleting favorite'
+                ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            }
 }
+
+
+
+}
+
