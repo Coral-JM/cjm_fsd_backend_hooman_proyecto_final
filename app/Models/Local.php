@@ -18,7 +18,8 @@ class Local extends Model
         'type',
         'rating',
         'image',
-        'company_id'
+        'company_id',
+        'isActive'
     ];
 
     public function review() {

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
             $table->boolean('isActive')->default(false);
-            
+                
             $table->timestamps();
         });
     }

@@ -23,7 +23,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/kukla.png',
             'company_id'=> 1,
-            'isActive'=> true,
+            'isActive'=> false,
         ]);
         DB::table('locals')->insert([
             'name'=>'Federal Café',

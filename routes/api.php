@@ -30,9 +30,9 @@ Route::get('/profile/myprofile', [AuthController::class, 'profile'])->middleware
 Route::post('/profile/myprofile', [AuthController::class, 'updateUser'])->middleware('auth:sanctum');
 
 //LOCALS CONTROLLER
-Route::get('/locals', [LocalController::class, 'getAllLocals']);
-Route::get('/locals', [LocalController::class, 'filterLocals']);
-Route::post('/locals', [LocalController::class, 'filterSpecifications']);
+Route::get('/locals/active', [LocalController::class, 'getAllLocals']);
+Route::get('/locals/filter', [LocalController::class, 'filterLocals']);
+Route::post('/locals/spec', [LocalController::class, 'filterSpecifications']);
 Route::get('/detail/{id}', [LocalController::class, 'getLocalById']);
 Route::post('/newlocal', [LocalController::class, 'newLocal'])->middleware('auth:sanctum');
 

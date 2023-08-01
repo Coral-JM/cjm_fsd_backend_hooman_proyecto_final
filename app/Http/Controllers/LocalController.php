@@ -13,7 +13,10 @@ class LocalController extends Controller
     public function getAllLocals() {
 
         try {
-            $locals = Local::with(['localSpecification'=> ['specification']])->with(['review'])->get();
+            $locals = Local::where('isActive', true)
+            ->with(['localSpecification'=> ['specification']])
+            ->with(['review'])
+            ->get();
 
             return response()->json([
                 'message'=> 'Locals retrieved',
@@ -48,7 +51,7 @@ class LocalController extends Controller
                 $query->where('type', $type);
             }
         
-            $locals = $query->get();
+            $locals = $query->where('isActive', true)->get();
 
             return response()->json([
                 'message'=> 'Locals retrieved',
@@ -70,7 +73,7 @@ class LocalController extends Controller
             $specifications = $request->get('specifications', []);
             
             $locales = Local::whereHas('localSpecification', function ($query) use ($specifications) {
-                $query->whereIn('specification_id', $specifications);})->get();
+                $query->whereIn('specification_id', $specifications);})->where('isActive', true)->get();
 
             return response()->json([
                 'message'=> 'Locals retrieved',
