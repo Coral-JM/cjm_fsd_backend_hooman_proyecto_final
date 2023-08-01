@@ -17,7 +17,8 @@ class Local extends Model
         'schedule',
         'type',
         'rating',
-        'image'
+        'image',
+        'company_id'
     ];
 
     public function review() {

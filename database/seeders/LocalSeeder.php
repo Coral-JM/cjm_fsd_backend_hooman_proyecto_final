@@ -23,6 +23,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/kukla.png',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Federal Café',
@@ -34,6 +35,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/federalCafe.jpg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'La Consentida',
@@ -45,6 +47,7 @@ class LocalSeeder extends Seeder
             'rating'=> 3,
             'image' => 'https://s3-hooman.s3.amazonaws.com/LaConsentida.jpg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Ubik Café',
@@ -56,6 +59,7 @@ class LocalSeeder extends Seeder
             'rating'=> 4,
             'image' => 'https://s3-hooman.s3.amazonaws.com/Ubik.jpg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Trencat',
@@ -67,6 +71,7 @@ class LocalSeeder extends Seeder
             'rating'=> 4,
             'image' => 'https://s3-hooman.s3.amazonaws.com/Trencat.jpg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Vlue Arribar',
@@ -78,6 +83,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/VlueArribar.jpg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Café Berlin',
@@ -89,6 +95,7 @@ class LocalSeeder extends Seeder
             'rating'=> 4,
             'image' => 'https://s3-hooman.s3.amazonaws.com/cafeBerlin.jpg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'El Garaje Foodie',
@@ -100,6 +107,7 @@ class LocalSeeder extends Seeder
             'rating'=> 4,
             'image' => 'https://s3-hooman.s3.amazonaws.com/GarajeFoodie.png',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Oliví',
@@ -111,6 +119,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/Olivi.jpg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Unsushi',
@@ -122,6 +131,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/unsushi.jpg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Slaughterhouse',
@@ -133,6 +143,7 @@ class LocalSeeder extends Seeder
             'rating'=> 4,
             'image' => 'https://s3-hooman.s3.amazonaws.com/Slaughterhouse.png',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'La cocina de Lupe',
@@ -144,6 +155,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/CocinaLupe.jpeg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Agua de vermut',
@@ -155,6 +167,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/aguadevermut.jpg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Almalibre Açaí House',
@@ -166,6 +179,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/almalibre.jpg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Aloha Poké',
@@ -177,6 +191,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/aloha.jpg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Bluebell Coffe Roasters',
@@ -188,6 +203,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/bluebell.jpg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'SALAT Bar i Botiga',
@@ -199,6 +215,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/salat.jpg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'La Chata Ultramarinos',
@@ -210,6 +227,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/lachata.png',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Café ArtySana',
@@ -221,6 +239,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/artysana.jpeg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Casa Capicúa',
@@ -232,6 +251,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/capicua.jpg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Bar Cafeteria Mani',
@@ -243,6 +263,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/barmani.jpg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Cocolinda',
@@ -254,6 +275,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/cocolinda.jpeg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Bastard Coffe Kitchen',
@@ -265,6 +287,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/bastard.jpg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'Brunch corner',
@@ -276,6 +299,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/brunchcorner.JPG',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
         DB::table('locals')->insert([
             'name'=>'La Casa Viva Russafa',
@@ -287,6 +311,7 @@ class LocalSeeder extends Seeder
             'rating'=> 5,
             'image' => 'https://s3-hooman.s3.amazonaws.com/casaviva.jpg',
             'company_id'=> 1,
+            'isActive'=> true,
         ]);
 
 

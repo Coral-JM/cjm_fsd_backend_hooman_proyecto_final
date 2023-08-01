@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Local;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
 
 class LocalController extends Controller
@@ -13,11 +14,6 @@ class LocalController extends Controller
 
         try {
             $locals = Local::with(['localSpecification'=> ['specification']])->with(['review'])->get();
-            // $locals = Local::get();
-            
-            // foreach ($locals as $local) {
-            //     $local->image = 'http://localhost:5173/uploads/' . $local->image;
-            // }
 
             return response()->json([
                 'message'=> 'Locals retrieved',
@@ -108,5 +104,57 @@ class LocalController extends Controller
             ]);
         }
     }
+
+    public function newLocal(Request $request)
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'name' => 'required|string',
+                'direction' => 'required|string',
+                'url' => 'required|string',
+                'phone' => 'required|string',
+                'schedule' => 'required|string',
+                'type' => 'required|string',
+                'image' => 'required|string',
+            ]);
+    
+            if ($validator->fails()) {
+                return response()->json(['error' => $validator->errors()], Response::HTTP_BAD_REQUEST);
+            }
+    
+            $user = auth()->user();
+            $company = $user->company;
+    
+            if (!$company) {
+                return response()->json(['error' => 'Debes tener asociada una compañía para crear un local.'], 
+                Response::HTTP_FORBIDDEN);
+            }
+    
+            $local = new Local();
+            $local->company_id = $company->id;
+            $local->name = $request->input('name');
+            $local->direction = $request->input('direction');
+            $local->url = $request->input('url');
+            $local->phone = $request->input('phone');
+            $local->schedule = $request->input('schedule');
+            $local->type = $request->input('type');
+            $local->image = $request->input('image');
+            $local->isActive = false;
+            $local->save();
+
+            return response()->json([
+                'message'=> 'Local created',
+                'data' => $local
+            ], Response::HTTP_CREATED);
+            
+        } catch (\Throwable $th) {
+            Log::error('Error posting new local' . $th->getMessage());
+            dd($th);
+            return response()->json([
+                'message' => 'Error posting new local'
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
 }

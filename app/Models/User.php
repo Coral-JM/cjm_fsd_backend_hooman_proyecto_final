@@ -47,13 +47,17 @@ class User extends Authenticatable
         return $this-> belongsTo(Role::class);
     }
     public function company() {
-        return $this-> hasMany(Company::class);
+        return $this-> hasOne(Company::class);
     }
     public function review() {
         return $this->hasMany(Review::class);
     }
     public function favorite() {
         return $this->hasMany(Favorite::class);
+    }
+    public function local()
+    {
+        return $this->hasMany(Local::class);
     }
 
 }
