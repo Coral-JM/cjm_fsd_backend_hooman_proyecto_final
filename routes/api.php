@@ -52,6 +52,8 @@ Route::delete('/favorites', [FavoriteController::class, 'deleteFav'])->middlewar
 //COMPANY CONTROLLER
 Route::get('/petitions/companies', [CompanyController::class, 'getCompany'])->middleware(['auth:sanctum', 'isAdmin']);
 Route::post('/petitions', [CompanyController::class, 'newCompany'])->middleware('auth:sanctum');
+Route::get('/profile/company', [CompanyController::class, 'getMyCompany'])->middleware('auth:sanctum');
+
 
 
 

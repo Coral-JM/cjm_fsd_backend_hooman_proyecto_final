@@ -66,5 +66,24 @@ class CompanyController extends Controller
         }
     }
 
+    public function getMyCompany() {
+        try {
+            $user = auth()->user();
+            $userId = $user->id;
+            $company = Company::where('user_id', $userId)->get();
+
+            return response()->json([
+                'message'=> 'Company retrieved',
+                'data'=> $company
+            ], Response::HTTP_OK);
+        } catch (\Throwable $th) {
+            Log::error('Error getting company ' . $th->getMessage());
+    
+            return response()->json([
+                'message' => 'Error retrieving company'
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
     
 }
