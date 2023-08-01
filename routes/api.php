@@ -35,6 +35,9 @@ Route::get('/locals/filter', [LocalController::class, 'filterLocals']);
 Route::post('/locals/spec', [LocalController::class, 'filterSpecifications']);
 Route::get('/detail/{id}', [LocalController::class, 'getLocalById']);
 Route::post('/newlocal', [LocalController::class, 'newLocal'])->middleware('auth:sanctum');
+Route::get('/petitions/locals', [LocalController::class, 'getAllLocalsByAdmin'])->middleware(['auth:sanctum', 'isAdmin']);
+Route::get('/mylocals', [LocalController::class, 'getMyLocals'])->middleware(['auth:sanctum']);
+
 
 //IMAGES CONTROLLER
 Route::get('images/{filename}', [ImageController::class, 'imageShow']);

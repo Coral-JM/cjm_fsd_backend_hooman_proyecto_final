@@ -159,5 +159,27 @@ class LocalController extends Controller
         }
     }
 
+    public function getAllLocalsByAdmin() {
+
+        try {
+            $locals = Local::where('isActive', false)
+            ->with(['localSpecification'=> ['specification']])
+            ->with(['review'])
+            ->get();
+
+            return response()->json([
+                'message'=> 'Locals retrieved',
+                'data'=> $locals
+            ], Response::HTTP_OK);
+            
+        } catch (\Throwable $th) {
+            Log::error('Error getting locals ' . $th->getMessage());
+    
+            return response()->json([
+                'message' => 'Error retrieving locals'
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
 }
